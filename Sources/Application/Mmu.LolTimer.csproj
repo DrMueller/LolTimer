@@ -111,7 +111,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\WpfUI\MainView.xaml.cs">
+    <Compile Include="Areas\Domain\Models\CampTimer.cs" />
+    <Compile Include="Areas\Domain\Models\Raptors.cs" />
+    <Compile Include="Areas\Domain\Models\JungleCamp.cs" />
+    <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
+    <Compile Include="Areas\WindowsNative\Services\Implementation\HookService.cs" />
+    <Compile Include="Areas\WindowsNative\Services\IHookService.cs" />
+    <Compile Include="Areas\WpfUI\Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DependencyInjection\LolTimerRegistry.cs" />
@@ -157,11 +163,11 @@
     <Analyzer Include="..\..\packages\Text.Analyzers.2.6.2\analyzers\dotnet\cs\Text.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Domain\" />
-    <Folder Include="Areas\WindowsNative\" />
+    <Folder Include="Areas\WpfUI\Controls\" />
+    <Folder Include="Areas\WpfUI\ViewData\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Areas\WpfUI\MainView.xaml">
+    <Page Include="Areas\WpfUI\Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

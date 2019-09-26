@@ -2,7 +2,7 @@
 using System.Timers;
 using System.Windows;
 
-namespace Mmu.LolTimer.Areas.WpfUI
+namespace Mmu.LolTimer.Areas.WpfUI.Views
 {
     public partial class MainView : Window, IDisposable
     {

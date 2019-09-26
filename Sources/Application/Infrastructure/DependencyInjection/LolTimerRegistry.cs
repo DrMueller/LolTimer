@@ -1,4 +1,5 @@
-﻿using StructureMap;
+﻿using Mmu.LolTimer.Areas.Domain.Models;
+using StructureMap;
 
 namespace Mmu.LolTimer.Infrastructure.DependencyInjection
 {
@@ -9,6 +10,8 @@ namespace Mmu.LolTimer.Infrastructure.DependencyInjection
             Scan(scanner =>
             {
                 scanner.AssemblyContainingType<LolTimerRegistry>();
+
+                scanner.AddAllTypesOf<JungleCamp>();
                 scanner.WithDefaultConventions();
             });
         }

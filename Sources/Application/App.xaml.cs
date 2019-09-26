@@ -1,5 +1,6 @@
 ﻿using System.Windows;
-using Mmu.LolTimer.Areas.WpfUI;
+using Mmu.LolTimer.Areas.WindowsNative.Services;
+using Mmu.LolTimer.Areas.WpfUI.Views;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Models;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Services;
 
@@ -11,6 +12,9 @@ namespace Mmu.LolTimer
         {
             var containerConfig = ContainerConfiguration.CreateFromAssembly(typeof(App).Assembly);
             var container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
+
+            var hookService = container.GetInstance<IHookService>();
+            hookService.Hook();
 
             var wn = container.GetInstance<MainView>();
             wn.Show();
