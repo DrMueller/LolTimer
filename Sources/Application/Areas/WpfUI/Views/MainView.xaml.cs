@@ -46,6 +46,7 @@ namespace Mmu.LolTimer.Areas.WpfUI.Views
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
+                Grd.Children.
                 Lbl.Content = DateTime.Now.ToLongTimeString();
             });
         }

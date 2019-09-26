@@ -11,6 +11,6 @@
         <SolidColorBrush Opacity="0" />
     </Window.Background>
     <Grid x:Name="Grd">
-        <Label FontSize="30" Foreground="DarkRed" x:Name="Lbl"></Label>
+        <Label FontSize="30"></Label>
     </Grid>
 </Window>

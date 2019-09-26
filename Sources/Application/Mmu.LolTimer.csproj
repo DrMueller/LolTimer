@@ -112,6 +112,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Domain\Models\CampTimer.cs" />
+    <Compile Include="Areas\Domain\Models\JungleCamps.cs" />
     <Compile Include="Areas\Domain\Models\Raptors.cs" />
     <Compile Include="Areas\Domain\Models\JungleCamp.cs" />
     <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\WpfUI\Controls\" />
+    <Folder Include="Areas\WpfUI\Dictionaries\" />
     <Folder Include="Areas\WpfUI\ViewData\" />
   </ItemGroup>
   <ItemGroup>
