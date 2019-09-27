@@ -18,6 +18,8 @@ namespace Mmu.LolTimer.Areas.Domain.Models
 
         public abstract KeyboardInputKey InputKey { get; }
 
+        public abstract int SortKey { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public JungleCamp(TimeSpan spawnTime)

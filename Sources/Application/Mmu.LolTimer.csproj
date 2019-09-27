@@ -111,9 +111,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\Domain\Models\Blue.cs" />
     <Compile Include="Areas\Domain\Models\CampTimer.cs" />
+    <Compile Include="Areas\Domain\Models\Gromp.cs" />
+    <Compile Include="Areas\Domain\Models\Krugs.cs" />
     <Compile Include="Areas\Domain\Models\Raptors.cs" />
     <Compile Include="Areas\Domain\Models\JungleCamp.cs" />
+    <Compile Include="Areas\Domain\Models\Red.cs" />
+    <Compile Include="Areas\Domain\Models\Wolves.cs" />
+    <Compile Include="Areas\Domain\Services\IJungleCampFactory.cs" />
+    <Compile Include="Areas\Domain\Services\Implementation\JungleCampFactory.cs" />
     <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
     <Compile Include="Areas\WindowsNative\Services\Implementation\HookService.cs" />
     <Compile Include="Areas\WindowsNative\Services\IHookService.cs" />

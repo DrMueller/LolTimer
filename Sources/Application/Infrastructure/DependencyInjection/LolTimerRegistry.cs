@@ -14,6 +14,8 @@ namespace Mmu.LolTimer.Infrastructure.DependencyInjection
                 scanner.AddAllTypesOf<JungleCamp>();
                 scanner.WithDefaultConventions();
             });
+
+            For<JungleCamp>().Singleton();
         }
     }
 }

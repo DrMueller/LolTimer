@@ -22,7 +22,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
 
                 if (_elapsedSeconds >= _spawnTime.Seconds)
                 {
-                    return "R";
+                    return "Spawned";
                 }
 
                 var ts = _spawnTime.Subtract(new TimeSpan(0, 0, _elapsedSeconds));

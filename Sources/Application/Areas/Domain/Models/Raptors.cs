@@ -5,10 +5,11 @@ namespace Mmu.LolTimer.Areas.Domain.Models
 {
     public class Raptors : JungleCamp
     {
-        public override KeyboardInputKey InputKey => KeyboardInputKey.F1;
+        public override KeyboardInputKey InputKey => KeyboardInputKey.F3;
 
-        public Raptors()
-                    : base(TimeSpan.FromSeconds(90))
+        public override int SortKey => 2;
+
+        public Raptors() : base(TimeSpan.FromSeconds(90))
         {
         }
 
