@@ -1,59 +1,23 @@
 ﻿using System;
-using System.Timers;
 using System.Windows;
+using Mmu.LolTimer.Areas.Domain.Models;
 
 namespace Mmu.LolTimer.Areas.WpfUI.Views
 {
-    public partial class MainView : Window, IDisposable
+    public partial class MainView : Window
     {
-        private readonly Timer _timer;
-        private bool _disposed;
+        public JungleCamp[] JungleCamps { get; }
 
-        public MainView()
+        public MainView(JungleCamp[] jungleCamps)
         {
             InitializeComponent();
-
-            _timer = new Timer(1000);
-            _timer.Elapsed += Timer_Elapsed;
-            _timer.Start();
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposedByCode)
-        {
-            if (!_disposed)
-            {
-                if (disposedByCode)
-                {
-                    _timer.Dispose();
-                }
-
-                _disposed = true;
-            }
+            DataContext = this;
+            JungleCamps = jungleCamps;
         }
 
         protected override void OnActivated(EventArgs e)
         {
-            Topmost = true;
-        }
-
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Grd.Children.
-                Lbl.Content = DateTime.Now.ToLongTimeString();
-            });
-        }
-
-        ~MainView()
-        {
-            Dispose(false);
+            //Topmost = true;
         }
     }
 }

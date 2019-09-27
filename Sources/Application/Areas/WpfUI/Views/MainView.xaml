@@ -7,10 +7,18 @@
         AllowsTransparency="True"
         WindowStyle="None"
         Top="0" Left="0">
-    <Window.Background>
+    <!--<Window.Background>
         <SolidColorBrush Opacity="0" />
-    </Window.Background>
-    <Grid x:Name="Grd">
-        <Label FontSize="30"></Label>
-    </Grid>
+    </Window.Background>-->
+    <Window.Resources>
+        <ResourceDictionary Source="/Mmu.LolTimer;component/Areas/WpfUI/Dictionaries/DataTemplates.xaml" />
+    </Window.Resources>
+
+    <ItemsControl ItemsSource="{Binding JungleCamps, Mode=OneWay}" ItemTemplate="{StaticResource JungleCamp}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
 </Window>

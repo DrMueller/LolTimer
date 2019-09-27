@@ -112,7 +112,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Domain\Models\CampTimer.cs" />
-    <Compile Include="Areas\Domain\Models\JungleCamps.cs" />
     <Compile Include="Areas\Domain\Models\Raptors.cs" />
     <Compile Include="Areas\Domain\Models\JungleCamp.cs" />
     <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
@@ -163,12 +162,12 @@
     <Analyzer Include="..\..\packages\Text.Analyzers.2.6.2\analyzers\dotnet\cs\Text.Analyzers.dll" />
     <Analyzer Include="..\..\packages\Text.Analyzers.2.6.2\analyzers\dotnet\cs\Text.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Areas\WpfUI\Controls\" />
-    <Folder Include="Areas\WpfUI\Dictionaries\" />
-    <Folder Include="Areas\WpfUI\ViewData\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Page Include="Areas\WpfUI\Dictionaries\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Areas\WpfUI\Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

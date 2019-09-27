@@ -1,26 +1,42 @@
-﻿using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
+﻿using System;
+using System.ComponentModel;
+using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 
 namespace Mmu.LolTimer.Areas.Domain.Models
 {
-    public abstract class JungleCamp
+    public abstract class JungleCamp : INotifyPropertyChanged
     {
-        public string Descripton
+        private readonly CampTimer _campTimer;
+
+        public string Description
         {
             get
             {
-                return $"{GetCampName()} {InputKey}";
+                return $"{GetCampName()} ({InputKey}): {_campTimer.TimerDescription}";
             }
-        }
-
-        public void StartTimer()
-        {
-            CampTimer.Start();
         }
 
         public abstract KeyboardInputKey InputKey { get; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public JungleCamp(TimeSpan spawnTime)
+        {
+            _campTimer = new CampTimer(
+                spawnTime,
+                () => OnPropertyChanged(nameof(Description)));
+        }
+
+        public void StartTimer()
+        {
+            _campTimer.Start();
+        }
+
         protected abstract string GetCampName();
 
-        protected abstract CampTimer CampTimer { get; }
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
     {
         private readonly TimeSpan _spawnTime;
         private readonly Timer _timer;
+        private readonly Action _timerElapsedCallback;
         private short _elapsedSeconds;
 
         public string TimerDescription
@@ -29,10 +30,11 @@ namespace Mmu.LolTimer.Areas.Domain.Models
             }
         }
 
-        public CampTimer(TimeSpan spawnTime)
+        public CampTimer(TimeSpan spawnTime, Action timerElapsedCallback)
         {
             _elapsedSeconds = 0;
             _spawnTime = spawnTime;
+            _timerElapsedCallback = timerElapsedCallback;
             _timer = new Timer(1000);
             _timer.Elapsed += Timer_Elapsed;
         }
@@ -46,6 +48,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             _elapsedSeconds += 1;
+            _timerElapsedCallback();
         }
     }
 }
