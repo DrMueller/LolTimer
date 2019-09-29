@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using Mmu.LolTimer.Areas.WindowsNative.Services;
-using Mmu.LolTimer.Areas.WpfUI.Views;
+using Mmu.LolTimer.Areas.WpfUI;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Models;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Services;
 

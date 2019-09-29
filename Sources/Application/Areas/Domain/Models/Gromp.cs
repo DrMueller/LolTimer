@@ -7,7 +7,9 @@ namespace Mmu.LolTimer.Areas.Domain.Models
     {
         public override KeyboardInputKey InputKey => KeyboardInputKey.F6;
 
-        public Gromp() : base(TimeSpan.FromSeconds(90))
+        public override int SortKey => 5;
+
+        public Gromp() : base(TimeSpan.FromSeconds(150))
         {
         }
 

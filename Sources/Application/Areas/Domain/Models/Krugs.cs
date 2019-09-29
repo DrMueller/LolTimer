@@ -9,7 +9,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
 
         public override int SortKey => 0;
 
-        public Krugs() : base(TimeSpan.FromSeconds(90))
+        public Krugs() : base(TimeSpan.FromSeconds(150))
         {
         }
 

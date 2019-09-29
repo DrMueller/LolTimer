@@ -9,7 +9,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
 
         public override int SortKey => 2;
 
-        public Raptors() : base(TimeSpan.FromSeconds(90))
+        public Raptors() : base(TimeSpan.FromSeconds(150))
         {
         }
 

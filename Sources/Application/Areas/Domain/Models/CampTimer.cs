@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Timers;
 
 namespace Mmu.LolTimer.Areas.Domain.Models
@@ -20,7 +19,7 @@ namespace Mmu.LolTimer.Areas.Domain.Models
                     return "N/A";
                 }
 
-                if (_elapsedSeconds >= _spawnTime.Seconds)
+                if (_elapsedSeconds >= _spawnTime.TotalSeconds)
                 {
                     return "Spawned";
                 }

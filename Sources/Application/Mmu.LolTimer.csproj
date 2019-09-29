@@ -124,7 +124,7 @@
     <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
     <Compile Include="Areas\WindowsNative\Services\Implementation\HookService.cs" />
     <Compile Include="Areas\WindowsNative\Services\IHookService.cs" />
-    <Compile Include="Areas\WpfUI\Views\MainView.xaml.cs">
+    <Compile Include="Areas\WpfUI\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DependencyInjection\LolTimerRegistry.cs" />
@@ -171,11 +171,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Areas\WpfUI\Dictionaries\DataTemplates.xaml">
+    <Page Include="Areas\WpfUI\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Areas\WpfUI\Views\MainView.xaml">
+    <Page Include="Areas\WpfUI\MainViewDict.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
