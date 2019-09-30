@@ -4,9 +4,11 @@ using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models
 
 namespace Mmu.LolTimer.Areas.Domain.Models
 {
-    public abstract class JungleCamp : INotifyPropertyChanged
+    public abstract class JungleCamp : INotifyPropertyChanged, IDisposable
     {
         private readonly CampTimer _campTimer;
+
+        private bool _disposed;
 
         public string Description
         {
@@ -29,9 +31,28 @@ namespace Mmu.LolTimer.Areas.Domain.Models
                 () => OnPropertyChanged(nameof(Description)));
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
         public void StartTimer()
         {
             _campTimer.Start();
+        }
+
+        protected virtual void Dispose(bool disposedByCode)
+        {
+            if (!_disposed)
+            {
+                if (disposedByCode)
+                {
+                    _campTimer.Dispose();
+                }
+
+                _disposed = true;
+            }
         }
 
         protected abstract string GetCampName();
@@ -39,6 +60,11 @@ namespace Mmu.LolTimer.Areas.Domain.Models
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        ~JungleCamp()
+        {
+            Dispose(false);
         }
     }
 }

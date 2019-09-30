@@ -3,11 +3,12 @@ using System.Timers;
 
 namespace Mmu.LolTimer.Areas.Domain.Models
 {
-    public class CampTimer
+    public class CampTimer : IDisposable
     {
         private readonly TimeSpan _spawnTime;
         private readonly Timer _timer;
         private readonly Action _timerElapsedCallback;
+        private bool _disposed;
         private short _elapsedSeconds;
 
         public string TimerDescription
@@ -38,16 +39,40 @@ namespace Mmu.LolTimer.Areas.Domain.Models
             _timer.Elapsed += Timer_Elapsed;
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
         public void Start()
         {
             _elapsedSeconds = 0;
             _timer.Start();
         }
 
+        protected virtual void Dispose(bool disposedByCode)
+        {
+            if (!_disposed)
+            {
+                if (disposedByCode)
+                {
+                    _timer.Dispose();
+                }
+
+                _disposed = true;
+            }
+        }
+
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             _elapsedSeconds += 1;
             _timerElapsedCallback();
+        }
+
+        ~CampTimer()
+        {
+            Dispose(false);
         }
     }
 }

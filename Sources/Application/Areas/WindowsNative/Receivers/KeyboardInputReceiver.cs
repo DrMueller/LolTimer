@@ -11,10 +11,10 @@ namespace Mmu.LolTimer.Areas.WindowsNative.Receivers
 {
     public class KeyboardInputReceiver : IKeyboardInputReceiver
     {
-        private static readonly Lazy<KeyboardEventConfiguration> Config = new Lazy<KeyboardEventConfiguration>(KeyboardEventConfiguration.CreateForAllEvents);
+        private static readonly Lazy<KeyboardEventConfiguration> _config = new Lazy<KeyboardEventConfiguration>(KeyboardEventConfiguration.CreateForAllEvents);
         private readonly JungleCamp[] _jungleCamps;
 
-        public KeyboardEventConfiguration Configuration => Config.Value;
+        public KeyboardEventConfiguration Configuration => _config.Value;
 
         public KeyboardInputReceiver(JungleCamp[] jungleCamps)
         {
