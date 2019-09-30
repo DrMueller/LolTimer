@@ -10,7 +10,6 @@ namespace Mmu.LolTimer.Infrastructure.DependencyInjection
             Scan(scanner =>
             {
                 scanner.AssemblyContainingType<LolTimerRegistry>();
-
                 scanner.AddAllTypesOf<JungleCamp>();
                 scanner.WithDefaultConventions();
             });
