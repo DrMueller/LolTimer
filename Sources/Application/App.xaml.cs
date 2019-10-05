@@ -8,13 +8,15 @@ namespace Mmu.LolTimer
 {
     public partial class App : Application
     {
+        private IHookService _hookService;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             var containerConfig = ContainerConfiguration.CreateFromAssembly(typeof(App).Assembly);
             var container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
 
-            var hookService = container.GetInstance<IHookService>();
-            hookService.Hook();
+            _hookService = container.GetInstance<IHookService>();
+            _hookService.Hook();
 
             var wn = container.GetInstance<MainView>();
             wn.Show();

@@ -1,5 +1,4 @@
-﻿using System;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
+﻿using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 
 namespace Mmu.LolTimer.Areas.WindowsNative.Services.Implementation
 {
