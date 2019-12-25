@@ -1,24 +1,26 @@
 ﻿using System.Windows;
-using Mmu.LolTimer.Areas.WindowsNative.Services;
-using Mmu.LolTimer.Areas.WpfUI;
+using Mmu.LolTimer.Areas.WpfUI.FlashTimers;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Models;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Services;
+using StructureMap;
 
 namespace Mmu.LolTimer
 {
     public partial class App : Application
     {
-        private IHookService _hookService;
+        private Container _container;
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            _container.Dispose();
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             var containerConfig = ContainerConfiguration.CreateFromAssembly(typeof(App).Assembly);
-            var container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
+            _container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
 
-            _hookService = container.GetInstance<IHookService>();
-            _hookService.Hook();
-
-            var wn = container.GetInstance<MainView>();
+            var wn = _container.GetInstance<ConfigureSummonersView>();
             wn.Show();
         }
     }

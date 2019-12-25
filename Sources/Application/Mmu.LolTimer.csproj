@@ -115,20 +115,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\Domain\Models\Blue.cs" />
-    <Compile Include="Areas\Domain\Models\CampTimer.cs" />
-    <Compile Include="Areas\Domain\Models\Gromp.cs" />
-    <Compile Include="Areas\Domain\Models\Krugs.cs" />
-    <Compile Include="Areas\Domain\Models\Raptors.cs" />
-    <Compile Include="Areas\Domain\Models\JungleCamp.cs" />
-    <Compile Include="Areas\Domain\Models\Red.cs" />
-    <Compile Include="Areas\Domain\Models\Wolves.cs" />
-    <Compile Include="Areas\Domain\Services\IJungleCampFactory.cs" />
-    <Compile Include="Areas\Domain\Services\Implementation\JungleCampFactory.cs" />
-    <Compile Include="Areas\WindowsNative\Receivers\KeyboardInputReceiver.cs" />
-    <Compile Include="Areas\WindowsNative\Services\Implementation\HookService.cs" />
-    <Compile Include="Areas\WindowsNative\Services\IHookService.cs" />
-    <Compile Include="Areas\WpfUI\MainView.xaml.cs">
+    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsConfigurator.cs" />
+    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsDisplayService.cs" />
+    <Compile Include="Areas\Application\SummonerSpells\Services\ISummonerSpellsConfigurator.cs" />
+    <Compile Include="Areas\Application\SummonerSpells\Services\ISummonerSpellsDisplayService.cs" />
+    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsKeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Blue.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\CampTimer.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Gromp.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Krugs.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Raptors.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\JungleCamp.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Red.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Wolves.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Services\IJungleCampFactory.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Services\Implementation\JungleCampFactory.cs" />
+    <Compile Include="Areas\Domain\SummonerSpells\Models\SummonerSpell.cs" />
+    <Compile Include="Areas\Domain\SummonerSpells\Models\SummonerSpellTimer.cs" />
+    <Compile Include="Areas\Domain\SummonerSpells\Services\Implementation\SummonerSpellFactory.cs" />
+    <Compile Include="Areas\Domain\SummonerSpells\Services\ISummonerSpellFactory.cs" />
+    <Compile Include="Areas\Application\JungleCamps\JungleCampsKeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Application\Common\Services\Implementation\HookService.cs" />
+    <Compile Include="Areas\Application\Common\Services\IHookService.cs" />
+    <Compile Include="Areas\WpfUI\FlashTimers\ConfigureSummonersView.xaml.cs">
+      <DependentUpon>ConfigureSummonersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\WpfUI\FlashTimers\FlashTimerView.xaml.cs">
+      <DependentUpon>FlashTimerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\WpfUI\JungleCamps\JungleCampTimerView.xaml.cs">
+      <DependentUpon>JungleCampTimerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\WpfUI\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DependencyInjection\LolTimerRegistry.cs" />
@@ -177,14 +195,41 @@
     <Resource Include="Infrastructure\Assets\L.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Areas\WpfUI\MainView.xaml">
+    <Page Include="Areas\WpfUI\FlashTimers\ConfigureSummonersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Areas\WpfUI\MainViewDict.xaml">
+    <Page Include="Areas\WpfUI\FlashTimers\ConfigureSummonersViewDict.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Areas\WpfUI\FlashTimers\FlashTimerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\WpfUI\FlashTimers\FlashTimerViewDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\WpfUI\JungleCamps\JungleCampTimerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\WpfUI\JungleCamps\JungleCampTimerViewDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\WpfUI\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\WpfUI\Main\MainViewDict.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Infrastructure\Assets\M.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

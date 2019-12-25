@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:Mmu.LolTimer.Areas.Domain.SummonerSpells.Models">
+    <Style TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+
+    <DataTemplate x:Key="DtSummonerSpell" DataType="{x:Type m:SummonerSpell}">
+        <Label Content="{Binding Description, Mode=OneWay}" />
+    </DataTemplate>
+</ResourceDictionary>
