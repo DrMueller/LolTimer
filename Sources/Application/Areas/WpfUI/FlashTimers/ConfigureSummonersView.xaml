@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Width="400"
         Height="270"
-        Title="ConfigureSummonersView">
+        Title="Configure Summoners">
 
     <Window.Resources>
         <ResourceDictionary Source="ConfigureSummonersViewDict.xaml" />
