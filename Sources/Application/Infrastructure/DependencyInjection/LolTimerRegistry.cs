@@ -1,4 +1,4 @@
-﻿using Mmu.LolTimer.Areas.Application.SummonerSpells.Services;
+﻿using Mmu.LolTimer.Areas.Application.Services;
 using Mmu.LolTimer.Areas.Domain.JungleCamps.Models;
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 using StructureMap;
@@ -19,9 +19,9 @@ namespace Mmu.LolTimer.Infrastructure.DependencyInjection
                 scanner.WithDefaultConventions();
             });
 
-            For<ISummonerSpellsConfigurator>().Singleton();
+            For<ITimeableElementConfigurator>().Singleton();
             For<IKeyboardInputReceiver>().Singleton();
-            For<JungleCamp>().Singleton();
+            For<JungleCamp>().AlwaysUnique();
         }
     }
 }

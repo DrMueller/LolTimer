@@ -115,28 +115,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsConfigurator.cs" />
-    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsDisplayService.cs" />
-    <Compile Include="Areas\Application\SummonerSpells\Services\ISummonerSpellsConfigurator.cs" />
-    <Compile Include="Areas\Application\SummonerSpells\Services\ISummonerSpellsDisplayService.cs" />
-    <Compile Include="Areas\Application\SummonerSpells\Services\Implementation\SummonerSpellsKeyboardInputReceiver.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Blue.cs" />
+    <Compile Include="Areas\Application\Services\Implementation\KeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Application\Services\Implementation\TimeableElementConfigurator.cs" />
+    <Compile Include="Areas\Application\Services\ITimeableElementConfigurator.cs" />
+    <Compile Include="Areas\Domain\Common\Models\ITimeableElement.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Buffs\Blue.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Buffs\BuffJungleCamp.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Models\CampTimer.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Gromp.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Krugs.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Raptors.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\JungleCampPosition.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\MinorCamps\Gromp.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\MinorCamps\Krugs.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\MinorCamps\MinorJungleCamp.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\MinorCamps\Raptors.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Models\JungleCamp.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Red.cs" />
-    <Compile Include="Areas\Domain\JungleCamps\Models\Wolves.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\Buffs\Red.cs" />
+    <Compile Include="Areas\Domain\JungleCamps\Models\MinorCamps\Wolves.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Services\IJungleCampFactory.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Services\Implementation\JungleCampFactory.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Models\SummonerSpell.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Models\SummonerSpellTimer.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Services\Implementation\SummonerSpellFactory.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Services\ISummonerSpellFactory.cs" />
-    <Compile Include="Areas\Application\JungleCamps\JungleCampsKeyboardInputReceiver.cs" />
-    <Compile Include="Areas\Application\Common\Services\Implementation\HookService.cs" />
-    <Compile Include="Areas\Application\Common\Services\IHookService.cs" />
+    <Compile Include="Areas\Application\Services\Implementation\HookService.cs" />
+    <Compile Include="Areas\Application\Services\IHookService.cs" />
     <Compile Include="Areas\WpfUI\FlashTimers\ConfigureSummonersView.xaml.cs">
       <DependentUpon>ConfigureSummonersView.xaml</DependentUpon>
     </Compile>
@@ -231,6 +232,7 @@
   <ItemGroup>
     <Resource Include="Infrastructure\Assets\M.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

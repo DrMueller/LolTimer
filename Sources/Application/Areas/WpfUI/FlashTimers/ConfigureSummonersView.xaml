@@ -44,7 +44,8 @@
         <Label Grid.Row="4" Grid.Column="0">Support</Label>
         <TextBox x:Name="TxbSummoner5" Grid.Row="4" Grid.Column="1" />
 
-        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Style="{StaticResource StyleActions}" >
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Style="{StaticResource StyleActions}">
             <Button Click="StartTimers_Click">Start Timers</Button>
         </StackPanel>
     </Grid>

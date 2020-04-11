@@ -1,13 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
+using Mmu.LolTimer.Areas.Domain.Common.Models;
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 
 namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
 {
-    public abstract class JungleCamp : INotifyPropertyChanged, IDisposable
+    public abstract class JungleCamp : INotifyPropertyChanged, IDisposable, ITimeableElement
     {
         private readonly CampTimer _campTimer;
-
         private bool _disposed;
 
         public string Description
@@ -20,7 +20,16 @@ namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
 
         public abstract KeyboardInputKey InputKey { get; }
 
-        public abstract int SortKey { get; }
+        public int SortKey
+        {
+            get
+            {
+                var initialKey = GetInitialSortKey();
+                return Position == JungleCampPosition.Own ? initialKey : initialKey + 6;
+            }
+        }
+
+        protected JungleCampPosition Position { get; private set; }
 
         protected JungleCamp(TimeSpan spawnTime)
         {
@@ -35,6 +44,11 @@ namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
             GC.SuppressFinalize(this);
         }
 
+        public void InitializePosition(JungleCampPosition position)
+        {
+            Position = position;
+        }
+
         public void StartTimer()
         {
             _campTimer.Start();
@@ -42,18 +56,22 @@ namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
 
         protected virtual void Dispose(bool disposedByCode)
         {
-            if (!_disposed)
+            if (_disposed)
             {
-                if (disposedByCode)
-                {
-                    _campTimer.Dispose();
-                }
-
-                _disposed = true;
+                return;
             }
+
+            if (disposedByCode)
+            {
+                _campTimer.Dispose();
+            }
+
+            _disposed = true;
         }
 
         protected abstract string GetCampName();
+
+        protected abstract int GetInitialSortKey();
 
         private void OnPropertyChanged(string propertyName)
         {

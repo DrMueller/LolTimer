@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Mmu.LolTimer.Areas.WpfUI.FlashTimers;
+using Mmu.LolTimer.Areas.WpfUI.Main;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Models;
 using Mmu.Mlh.ServiceProvisioning.Areas.Initialization.Services;
 using StructureMap;
@@ -20,7 +20,7 @@ namespace Mmu.LolTimer
             var containerConfig = ContainerConfiguration.CreateFromAssembly(typeof(App).Assembly);
             _container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
 
-            var wn = _container.GetInstance<ConfigureSummonersView>();
+            var wn = _container.GetInstance<MainView>();
             wn.Show();
         }
     }

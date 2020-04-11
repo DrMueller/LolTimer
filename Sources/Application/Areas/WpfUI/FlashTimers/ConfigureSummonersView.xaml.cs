@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using Mmu.LolTimer.Areas.Application.SummonerSpells.Services;
+using Mmu.LolTimer.Areas.Application.Services;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Models;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Services;
 
@@ -8,13 +8,18 @@ namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
 {
     public partial class ConfigureSummonersView : Window
     {
-        private readonly ISummonerSpellsDisplayService _displayService;
+        private readonly ITimeableElementConfigurator _configurator;
+        private readonly IHookService _hookService;
         private readonly ISummonerSpellFactory _summonerSpellFactory;
 
-        public ConfigureSummonersView(ISummonerSpellFactory summonerSpellFactory, ISummonerSpellsDisplayService displayService)
+        public ConfigureSummonersView(
+            ISummonerSpellFactory summonerSpellFactory,
+            ITimeableElementConfigurator configurator,
+            IHookService hookService)
         {
             _summonerSpellFactory = summonerSpellFactory;
-            _displayService = displayService;
+            _configurator = configurator;
+            _hookService = hookService;
             InitializeComponent();
         }
 
@@ -29,7 +34,13 @@ namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
                 _summonerSpellFactory.CreateFlash(TxbSummoner5.Text, 4)
             };
 
-            _displayService.Display(this, summonerSpells);
+            var timerView = new FlashTimerView();
+            timerView.Initialize(summonerSpells);
+            Visibility = Visibility.Hidden;
+            _configurator.Initialize(summonerSpells);
+            _hookService.Hook();
+
+            timerView.Show();
         }
     }
 }

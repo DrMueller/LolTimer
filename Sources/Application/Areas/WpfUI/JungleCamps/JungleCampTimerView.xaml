@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        SizeToContent="Width"
+        SizeToContent="WidthAndHeight"
         AllowsTransparency="True"
         WindowStyle="None"
         Top="0" Left="0" Height="40">
@@ -12,11 +12,21 @@
         <ResourceDictionary Source="JungleCampTimerViewDict.xaml" />
     </Window.Resources>
 
-    <ItemsControl ItemsSource="{Binding JungleCamps, Mode=OneWay}" ItemTemplate="{StaticResource JungleCamp}">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel Orientation="Horizontal" />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-    </ItemsControl>
+    <StackPanel Orientation="Vertical">
+        <ItemsControl ItemsSource="{Binding OwnJungleCamps, Mode=OneWay}" ItemTemplate="{StaticResource JungleCamp}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <ItemsControl ItemsSource="{Binding EnemyJungleCamps, Mode=OneWay}" ItemTemplate="{StaticResource JungleCamp}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
 </Window>

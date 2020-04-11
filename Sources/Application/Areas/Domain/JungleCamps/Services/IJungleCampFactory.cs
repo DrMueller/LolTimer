@@ -5,6 +5,6 @@ namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Services
 {
     public interface IJungleCampFactory
     {
-        IReadOnlyCollection<JungleCamp> CreateAll();
+        IReadOnlyCollection<JungleCamp> CreateAll(JungleCampPosition position);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Mmu.LolTimer.Areas.Application.Common.Services
+﻿namespace Mmu.LolTimer.Areas.Application.Services
 {
     public interface IHookService
     {

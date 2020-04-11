@@ -1,6 +1,6 @@
 ﻿using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 
-namespace Mmu.LolTimer.Areas.Application.Common.Services.Implementation
+namespace Mmu.LolTimer.Areas.Application.Services.Implementation
 {
     public class HookService : IHookService
     {

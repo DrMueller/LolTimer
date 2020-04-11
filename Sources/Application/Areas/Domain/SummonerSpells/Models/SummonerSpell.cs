@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using Mmu.LolTimer.Areas.Domain.Common.Models;
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 
 namespace Mmu.LolTimer.Areas.Domain.SummonerSpells.Models
 {
-    public sealed class SummonerSpell : IDisposable, INotifyPropertyChanged
+    public sealed class SummonerSpell : ITimeableElement, IDisposable, INotifyPropertyChanged
     {
         private readonly SummonerSpellTimer _spellTimer;
         private readonly string _summonerName;

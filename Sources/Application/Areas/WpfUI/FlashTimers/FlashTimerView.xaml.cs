@@ -19,6 +19,12 @@ namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
             DataContext = this;
         }
 
+        public void Display()
+        {
+            Topmost = true;
+            Show();
+        }
+
         public void Dispose()
         {
             Dispose(true);

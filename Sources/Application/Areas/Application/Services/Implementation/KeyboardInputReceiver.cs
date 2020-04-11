@@ -5,17 +5,17 @@ using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 
-namespace Mmu.LolTimer.Areas.Application.SummonerSpells.Services.Implementation
+namespace Mmu.LolTimer.Areas.Application.Services.Implementation
 {
-    public class SummonerSpellsKeyboardInputReceiver : IKeyboardInputReceiver
+    public class KeyboardInputReceiver : IKeyboardInputReceiver
     {
-        private readonly ISummonerSpellsConfigurator _configurator;
+        private readonly ITimeableElementConfigurator _configurator;
 
         public KeyboardEventConfiguration Configuration
         {
             get
             {
-                var keys = _configurator.SummonerSpells.Select(f => f.InputKey).ToArray();
+                var keys = _configurator.Elements.Select(f => f.InputKey).ToArray();
                 var inputKeyConfig = new KeyboardInputKeyConfiguration(keys);
                 var config = new KeyboardEventConfiguration(
                     inputKeyConfig,
@@ -26,7 +26,7 @@ namespace Mmu.LolTimer.Areas.Application.SummonerSpells.Services.Implementation
             }
         }
 
-        public SummonerSpellsKeyboardInputReceiver(ISummonerSpellsConfigurator configurator)
+        public KeyboardInputReceiver(ITimeableElementConfigurator configurator)
         {
             _configurator = configurator;
         }
@@ -34,7 +34,7 @@ namespace Mmu.LolTimer.Areas.Application.SummonerSpells.Services.Implementation
         public Task ReceiveAsync(KeyboardInput input)
         {
             _configurator
-                .SummonerSpells
+                .Elements
                 .Where(jc => jc.InputKey == input.InputKey)
                 .ForEach(jc => jc.StartTimer());
 

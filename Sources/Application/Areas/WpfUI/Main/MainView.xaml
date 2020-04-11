@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mmu.LolTimer.Areas.WpfUI.Main"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight">
 
     <Window.Resources>
         <ResourceDictionary Source="MainViewDict.xaml" />
     </Window.Resources>
 
     <StackPanel Orientation="Vertical">
-        <!--<Button x:Name="BtnJungleTimer" Content="Jungle Timer" Click="BtnJungleTimer_Click" />-->
+        <Button x:Name="BtnJungleTimer" Content="Jungle Timer" Click="BtnJungleTimer_Click" />
         <Button x:Name="BtnFlashTimer" Content="Flash Timer" Click="BtnFlashTimer_Click" />
     </StackPanel>
 </Window>

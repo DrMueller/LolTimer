@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Mmu.LolTimer.Areas.WpfUI.JungleCamps"
-                    xmlns:m="clr-namespace:Mmu.LolTimer.Areas.Domain.JungleCamps.Models">
+                    xmlns:m="clr-namespace:Mmu.LolTimer.Areas.Domain.JungleCamps.Models"
+                    xmlns:minorCamps="clr-namespace:Mmu.LolTimer.Areas.Domain.JungleCamps.Models.MinorCamps">
     <Style TargetType="Label">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Margin" Value="0,0,10,0" />
