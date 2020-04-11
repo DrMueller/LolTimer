@@ -28,7 +28,7 @@ namespace Mmu.LolTimer.Areas.WpfUI.JungleCamps
             EnemyJungleCamps = jungleCampFactory.CreateAll(JungleCampPosition.Enemy);
             _allCamps = OwnJungleCamps.Concat(EnemyJungleCamps).ToList();
 
-            Visibility = Visibility.Hidden;
+            Topmost = true;
             configurator.Initialize(_allCamps);
             hookService.Hook();
         }
