@@ -67,9 +67,6 @@
     <Reference Include="Mmu.Mlh.LanguageExtensions, Version=2.1.18.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Mmu.Mlh.LanguageExtensions.2.1.18\lib\netstandard2.0\Mmu.Mlh.LanguageExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="Mmu.Mlh.NetFrameworkExtensions, Version=2.0.25.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Mmu.Mlh.NetFrameworkExtensions.2.0.25\lib\net472\Mmu.Mlh.NetFrameworkExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="Mmu.Mlh.ServiceProvisioning, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Mmu.Mlh.ServiceProvisioning.2.0.5\lib\netstandard2.0\Mmu.Mlh.ServiceProvisioning.dll</HintPath>
     </Reference>
@@ -93,6 +90,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -115,9 +113,46 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\Application\Services\Implementation\KeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Application\Common\Factories\IInputFactory.cs" />
+    <Compile Include="Areas\Application\Common\Models\Configurations\IEventConfiguration.cs" />
+    <Compile Include="Areas\Application\Common\Models\Inputs\IInput.cs" />
+    <Compile Include="Areas\Application\Common\Models\Inputs\INativeInput.cs" />
+    <Compile Include="Areas\Application\Common\Services\IInputReceivre.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\IKeyboardInputFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Implementation\KeyboardInputFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\IKeyboardInputKeyMappingServant.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\IKeyboardInputLocksFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\IKeyboardInputModifiersFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\Implementation\KeyboardInputKeyMappingServant.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\Implementation\KeyboardInputLocksFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Factories\Servants\Implementation\KeyboardInputModifiersFactory.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Configurations\KeyboardEventConfiguration.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Configurations\KeyboardInputKeyConfiguration.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Configurations\KeyboardInputMap.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Configurations\LockConfiguration.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Configurations\ModifierConfiguration.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Inputs\KeyboardInput.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Inputs\KeyboardInputDirection.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Inputs\KeyboardInputKey.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Inputs\KeyboardInputLocks.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Models\Inputs\KeyboardInputModifiers.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Services\IKeyboardHookService.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Services\IKeyboardInputReceiver.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\Domain\Services\Implementation\KeyboardHookService.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\WindowsNative\Models\NativeKeyboardInput.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\WindowsNative\Models\NativeKeyboardInputDirection.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\WindowsNative\Services\Implementation\NativeKeyboardHookService.cs" />
+    <Compile Include="Areas\Application\KeyboardHooking\WindowsNative\Services\INativeKeyboardHookService.cs" />
     <Compile Include="Areas\Application\Services\Implementation\TimeableElementConfigurator.cs" />
     <Compile Include="Areas\Application\Services\ITimeableElementConfigurator.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Delegates\HookProc.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Delegates\HookReceived.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Enums\HookType.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Imports\NativeMethods.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Services\IHookService.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Services\Implementation\HookService.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Services\Servants\Implementation\InvokeActionServant.cs" />
+    <Compile Include="Areas\Application\WindowsNative\Services\Servants\Implementation\MySafeHandle.cs" />
     <Compile Include="Areas\Domain\Common\Models\ITimeableElement.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Models\Buffs\Blue.cs" />
     <Compile Include="Areas\Domain\JungleCamps\Models\Buffs\BuffJungleCamp.cs" />
@@ -136,8 +171,6 @@
     <Compile Include="Areas\Domain\SummonerSpells\Models\SummonerSpellTimer.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Services\Implementation\SummonerSpellFactory.cs" />
     <Compile Include="Areas\Domain\SummonerSpells\Services\ISummonerSpellFactory.cs" />
-    <Compile Include="Areas\Application\Services\Implementation\HookService.cs" />
-    <Compile Include="Areas\Application\Services\IHookService.cs" />
     <Compile Include="Areas\WpfUI\FlashTimers\ConfigureSummonersView.xaml.cs">
       <DependentUpon>ConfigureSummonersView.xaml</DependentUpon>
     </Compile>
@@ -228,9 +261,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Infrastructure\Assets\M.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

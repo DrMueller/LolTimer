@@ -6,6 +6,8 @@ using Mmu.LolTimer.Areas.Application.Services;
 using Mmu.LolTimer.Areas.Domain.JungleCamps.Models;
 using Mmu.LolTimer.Areas.Domain.JungleCamps.Services;
 using Mmu.Mlh.LanguageExtensions.Areas.Collections;
+using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
+using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.WindowsNative.Services;
 
 namespace Mmu.LolTimer.Areas.WpfUI.JungleCamps
 {
@@ -19,7 +21,7 @@ namespace Mmu.LolTimer.Areas.WpfUI.JungleCamps
         public JungleCampTimerView(
             IJungleCampFactory jungleCampFactory,
             ITimeableElementConfigurator configurator,
-            IHookService hookService)
+            IKeyboardHookService hookService)
         {
             InitializeComponent();
             DataContext = this;
@@ -30,7 +32,7 @@ namespace Mmu.LolTimer.Areas.WpfUI.JungleCamps
 
             Topmost = true;
             configurator.Initialize(_allCamps);
-            hookService.Hook();
+            hookService.HookKeyboard();
         }
 
         public void Dispose()

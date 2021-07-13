@@ -3,19 +3,20 @@ using System.Windows;
 using Mmu.LolTimer.Areas.Application.Services;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Models;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Services;
+using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 
 namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
 {
     public partial class ConfigureSummonersView : Window
     {
         private readonly ITimeableElementConfigurator _configurator;
-        private readonly IHookService _hookService;
+        private readonly IKeyboardHookService _hookService;
         private readonly ISummonerSpellFactory _summonerSpellFactory;
 
         public ConfigureSummonersView(
             ISummonerSpellFactory summonerSpellFactory,
             ITimeableElementConfigurator configurator,
-            IHookService hookService)
+            IKeyboardHookService hookService)
         {
             _summonerSpellFactory = summonerSpellFactory;
             _configurator = configurator;
@@ -38,7 +39,7 @@ namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
             timerView.Initialize(summonerSpells);
             Visibility = Visibility.Hidden;
             _configurator.Initialize(summonerSpells);
-            _hookService.Hook();
+            _hookService.HookKeyboard();
 
             timerView.Show();
         }
