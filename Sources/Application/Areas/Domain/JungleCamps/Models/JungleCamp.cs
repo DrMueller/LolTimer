@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using Mmu.LolTimer.Areas.Application.Hooking.KeyboardHooking.Domain.Models.Inputs;
 using Mmu.LolTimer.Areas.Domain.Common.Models;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 
 namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
 {
@@ -9,15 +9,7 @@ namespace Mmu.LolTimer.Areas.Domain.JungleCamps.Models
     {
         private readonly CampTimer _campTimer;
         private bool _disposed;
-
-        public string Description
-        {
-            get
-            {
-                return $"{GetCampName()} ({InputKey}): {_campTimer.TimerDescription}";
-            }
-        }
-
+        public string Description => $"{GetCampName()} ({InputKey}): {_campTimer.TimerDescription}";
         public abstract KeyboardInputKey InputKey { get; }
 
         public int SortKey

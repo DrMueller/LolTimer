@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using Mmu.LolTimer.Areas.Application.Services;
+using Mmu.LolTimer.Areas.Application.Hooking.KeyboardHooking.Domain.Services;
+using Mmu.LolTimer.Areas.Application.TimableElements.Services;
 using Mmu.LolTimer.Areas.Domain.JungleCamps.Models;
 using Mmu.LolTimer.Areas.Domain.JungleCamps.Services;
 using Mmu.Mlh.LanguageExtensions.Areas.Collections;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.WindowsNative.Services;
 
 namespace Mmu.LolTimer.Areas.WpfUI.JungleCamps
 {

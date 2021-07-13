@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using Mmu.LolTimer.Areas.Application.Hooking.KeyboardHooking.Domain.Models.Inputs;
 using Mmu.LolTimer.Areas.Domain.Common.Models;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Models.Inputs;
 
 namespace Mmu.LolTimer.Areas.Domain.SummonerSpells.Models
 {
@@ -10,15 +10,7 @@ namespace Mmu.LolTimer.Areas.Domain.SummonerSpells.Models
         private readonly SummonerSpellTimer _spellTimer;
         private readonly string _summonerName;
         private bool _disposed;
-
-        public string Description
-        {
-            get
-            {
-                return $"{_summonerName} ({InputKey}): {_spellTimer.TimerDescription}";
-            }
-        }
-
+        public string Description => $"{_summonerName} ({InputKey}): {_spellTimer.TimerDescription}";
         public KeyboardInputKey InputKey { get; }
 
         public SummonerSpell(string summonerName, KeyboardInputKey inputKey, TimeSpan cooldown)
@@ -26,7 +18,8 @@ namespace Mmu.LolTimer.Areas.Domain.SummonerSpells.Models
             InputKey = inputKey;
             _summonerName = summonerName;
 
-            _spellTimer = new SummonerSpellTimer(cooldown,
+            _spellTimer = new SummonerSpellTimer(
+                cooldown,
                 () => OnPropertyChanged(nameof(Description)));
         }
 

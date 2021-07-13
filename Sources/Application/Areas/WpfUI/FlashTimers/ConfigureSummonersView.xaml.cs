@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using Mmu.LolTimer.Areas.Application.Services;
+using Mmu.LolTimer.Areas.Application.Hooking.KeyboardHooking.Domain.Services;
+using Mmu.LolTimer.Areas.Application.TimableElements.Services;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Models;
 using Mmu.LolTimer.Areas.Domain.SummonerSpells.Services;
-using Mmu.Mlh.NetFrameworkExtensions.Areas.Hooking.KeyboardHooking.Domain.Services;
 
 namespace Mmu.LolTimer.Areas.WpfUI.FlashTimers
 {
